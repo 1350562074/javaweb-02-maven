@@ -1,0 +1,67 @@
+<!-- Maven版本和头文件 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <!-- 创建时候设置的 -->
+  <groupId>com.hao</groupId>
+  <artifactId>javaweb-01-maven</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <!-- Package: 项目的打包方式
+  jar:java应用
+  war:Javaweb应用
+  -->
+  <packaging>war</packaging>
+
+  <name>javaweb-01-maven Maven Webapp</name>
+  
+  <url>http://maven.apache.org</url>
+  
+  <!-- 项目依赖 -->
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>5.2.7.RELEASE</version>
+	</dependency>
+
+  </dependencies>
+  
+  <!--  
+  <build>
+    <finalName>javaweb-01-maven</finalName>
+  </build>
+  -->
+  
+  <!-- 在build中配置resources，来防止我们资源导出失败的问题 -->
+  <build>
+      <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <excludes>
+                <exclude>**/*.properties</exclude>
+                <exclude>**/*.xml</exclude>
+             </excludes>
+            <filtering>false</filtering>
+        </resource>
+        <resource>
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*.properties</include>
+                <include>**/*.xml</include>
+            </includes>
+            <filtering>false</filtering>
+        </resource>
+  	  </resources>
+	</build>
+  
+</project>
